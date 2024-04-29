@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="25.698" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search a Keyword Test For N11" name="Search a keyword with results" time="25.265">
+<system-out><![CDATA[
+Given User navigates to "url"...............................................passed
+When User searches for a keyword in the search box finding results..........passed
+Then Verify that search results should be displayed in the Browser..........passed
+]]></system-out>
+</testcase>
+</testsuite>
