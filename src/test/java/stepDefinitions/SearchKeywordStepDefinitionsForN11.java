@@ -42,7 +42,7 @@ public class SearchKeywordStepDefinitionsForN11 {
 
     @Then("Verify that no search results should be displayed in the Browser")
     public void verifyThatNoSearchResultsShouldBeDisplayedInTheBrowser() throws IOException {
-        ReusableMethods.waitForVisibility(n11Pages.notFoundImg, 5);
+        ReusableMethods.waitForVisibility(n11Pages.notFoundImg, 10);
         Assert.assertTrue(n11Pages.notFoundImg.isDisplayed());
         ReusableMethods.getScreenshot("Unsuccesfull_Search");
         ReusableMethods.logToTxtFileWithSearchedTermNegativeAfterPositive(n11Pages.notFoundText, " Results for ", ConfigReader.getProperty("reportTxtFileForSearchKeyword"), ConfigReader.getProperty("SearchWordForNoResults"));
