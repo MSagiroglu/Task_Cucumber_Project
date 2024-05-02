@@ -43,6 +43,7 @@ public class N11Pages {
     @FindBy(xpath = "//h1")
     public WebElement notFoundText;
 
-// branch aydin
+    @FindBy(xpath = "//a[@class='btnSignIn']")
+    public WebElement girisYapButton3;
 
 }
