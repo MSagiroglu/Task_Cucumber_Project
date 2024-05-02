@@ -46,4 +46,6 @@ public class N11Pages {
     @FindBy(xpath = "//a[@class='btnSignIn']")
     public WebElement girisYapButton3;
 
+    //kkhh
+
 }
