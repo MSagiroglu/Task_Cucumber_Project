@@ -37,14 +37,27 @@ public class N11Pages {
     @FindBy(xpath = "//div[@class='resultView']")
     public WebElement succesfullResult;
 
+
     @FindBy(xpath = "//i[@class='notFoundImg']")
     public WebElement notFoundImg;
 
     @FindBy(xpath = "//h1")
     public WebElement notFoundText;
 
-    @FindBy(xpath = "//a[@class='btnSignIn']")
-    public WebElement girisYapButton3;
+    @FindBy(xpath = "(//div[@id='p-581650182'])")
+    public WebElement firstProduct;
+    @FindBy(xpath = "//h1[@class='proName']")
+    public WebElement productNameDetails;
+
+    @FindBy(xpath = "//div[@class='newPrice']")
+    public WebElement productPrice;
+    @FindBy(xpath = "//div[@class='unf-p-seller-grade']/div")
+    public WebElement shopPoint;
+    @FindBy(xpath = "//efilli-layout-dynamic")
+    public WebElement shadowParentElement;
+    @FindBy(xpath = "//div[@class='px-16px py-8px cursor-pointer rounded-6px bg-[#5D3EBC] text-center font-600 text-white']")
+    public WebElement shadowChildElement;
+
 
 
 }

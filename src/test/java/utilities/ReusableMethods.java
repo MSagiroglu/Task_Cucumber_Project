@@ -21,6 +21,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import static utilities.Driver.getDriver;
+
 public class ReusableMethods {
 
     public static void logToTxtFile(WebElement element, String definingMessage, String fileName) throws IOException {
@@ -63,7 +65,7 @@ public class ReusableMethods {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
         // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
         // full path to the screenshot location
         String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
@@ -77,7 +79,7 @@ public class ReusableMethods {
 
 
     public static void jsExecutorScrool(WebElement webElement) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         // Belirli webElement element seviyesine scroll
         js.executeScript("arguments[0].scrollIntoView(true);", webElement);
     }
@@ -86,7 +88,7 @@ public class ReusableMethods {
         try {
             element.click();
         } catch (Exception e) {
-            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].click();", element);
         }
     }
@@ -111,7 +113,7 @@ public class ReusableMethods {
 
     //========Hover Over=====//
     public static void hover(WebElement element) {
-        Actions actions = new Actions(Driver.getDriver());
+        Actions actions = new Actions(getDriver());
         actions.moveToElement(element).perform();
     }
 
@@ -128,22 +130,22 @@ public class ReusableMethods {
 
     //Alert ACCEPT
     public static void alertAccept() {
-        Driver.getDriver().switchTo().alert().accept();
+        getDriver().switchTo().alert().accept();
     }
 
     //Alert DISMISS
     public static void alertDismiss() {
-        Driver.getDriver().switchTo().alert().dismiss();
+        getDriver().switchTo().alert().dismiss();
     }
 
     //Alert getText()
     public static void alertText() {
-        Driver.getDriver().switchTo().alert().getText();
+        getDriver().switchTo().alert().getText();
     }
 
     //Alert promptBox
     public static void alertprompt(String text) {
-        Driver.getDriver().switchTo().alert().sendKeys(text);
+        getDriver().switchTo().alert().sendKeys(text);
     }
 
     //DropDown VisibleText
@@ -182,44 +184,44 @@ public class ReusableMethods {
 
     //SwitchToWindow1
     public static void switchToWindow1(int sayi) {
-        List<String> tumWindowHandles = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-        Driver.getDriver().switchTo().window(tumWindowHandles.get(sayi));
+        List<String> tumWindowHandles = new ArrayList<String>(getDriver().getWindowHandles());
+        getDriver().switchTo().window(tumWindowHandles.get(sayi));
     }
 
     //SwitchToWindow2
     public static void switchToWindow2(int sayi) {
-        Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[sayi].toString());
+        getDriver().switchTo().window(getDriver().getWindowHandles().toArray()[sayi].toString());
     }
     //EXPLICIT WAIT METHODS
 
     //Visible Wait
     public static void visibleWait(WebElement element, int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 
     //VisibleElementLocator Wait
     public static WebElement visibleWait(By locator, int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(sayi));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
 
     public static WebElement waitForVisibility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     //WaitForClickablility Wait Element
     public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     //WaitForClickablility Wait Locator
     public static WebElement waitForClickablility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
@@ -242,7 +244,7 @@ public class ReusableMethods {
         };
         try {
             System.out.println("Waiting for page to load...");
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+            WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(timeout));
             wait.until(expectation);
         } catch (Throwable error) {
             System.out.println(
@@ -251,7 +253,7 @@ public class ReusableMethods {
     }
 
     public static void doubleClick(WebElement element) {
-        new Actions(Driver.getDriver()).doubleClick(element).build().perform();
+        new Actions(getDriver()).doubleClick(element).build().perform();
     }
 
     public static void selectCheckBox(WebElement element, boolean check) {
@@ -269,7 +271,7 @@ public class ReusableMethods {
 
     //Alert Wait
     public static void alertWait(int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.alertIsPresent());
 
     }
@@ -278,7 +280,7 @@ public class ReusableMethods {
     public static void tumSayfaResmi(String userStoryNumber, String pageName) {
         String tarih = new SimpleDateFormat("hh_mm_ss_ddMMyyyy").format(new Date());
         String dosyaYolu = "projectImages/us_" + userStoryNumber + "_images/webpage/" + tarih + "_" + pageName + ".png";
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
         try {
             FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
         } catch (IOException e) {
@@ -292,7 +294,7 @@ public class ReusableMethods {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
 
         String dosyaYolu = "projectImages/us_" + userStoryNumber + "_images/webelement/" + tarih + "_" + elementName + ".png";
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
         try {
             FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
         } catch (IOException e) {
@@ -304,7 +306,7 @@ public class ReusableMethods {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
         // TakesScreenshot is an interface of selenium that takes the screenshot
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
         // full path to the screenshot location
         String dosyaYolu = System.getProperty("user.dir") + "/target/Screenshots/wepPage/US_" + featureName + "/" + name + date + ".png";
         File source = ts.getScreenshotAs(OutputType.FILE);
@@ -319,33 +321,33 @@ public class ReusableMethods {
 
     //WebTable
     public static void printData(int satir, int sutun) {
-        WebElement satirSutun = Driver.getDriver().findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
+        WebElement satirSutun = getDriver().findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
         System.out.println(satirSutun.getText());
     }
 
 
     //JS Scroll
     public static void scroll(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 
     //JS Sayfa Sonu Scroll
     public static void scrollEnd() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
     //JS Sayfa Başı Scroll
     public static void scrollHome() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
 
     //JS SendKeys
     public static void sendKeysJS(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].value='" + text + "'", element);
     }
 
@@ -355,20 +357,20 @@ public class ReusableMethods {
             element.sendKeys(text);
 
         } catch (Exception e) {
-            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
             js.executeScript("arguments[0].setAttribute('value','" + text + "')", element);
         }
     }
 
     public static String getTextWithJavaScript(WebElement element) {
-        String text ;
+        String text;
 
         try {
             text = element.getText();
         } catch (Exception e) {
 
             // JavaScriptExecutor kullanarak elementin içeriğini al
-            JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
             text = (String) jsExecutor.executeScript("return arguments[0].textContent;", element);
 
         }
@@ -378,15 +380,16 @@ public class ReusableMethods {
 
     //JS GetAttributeValue
     public static void getValueByJS(String id, String attributeName) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
     }
-    public static void robotClassDosyaYukleme(String filePath){
-        try{
+
+    public static void robotClassDosyaYukleme(String filePath) {
+        try {
             ReusableMethods.bekle(3);
             StringSelection stringSelection = new StringSelection(filePath);
-            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection,null);
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
             Robot robot = new Robot();
             //pressing ctrl+v
             robot.keyPress(KeyEvent.VK_CONTROL);
@@ -407,11 +410,40 @@ public class ReusableMethods {
             robot.keyRelease(KeyEvent.VK_ENTER);
             ReusableMethods.bekle(3);
             System.out.println("ENTER");
-        }catch (Exception e){
+        } catch (Exception e) {
         }
     }
 
+    //Shadow Root
+    public static void shadowRootWithParentElement(WebElement parentElement) {
+
+
+            //shadow root içeren elementi clickler
+            WebElement RejectButton = (WebElement) ((JavascriptExecutor) getDriver())
+                    .executeScript("return arguments[0].shadowRoot.querySelector('.px-16px py-8px cursor-pointer rounded-6px bg-[#5D3EBC] text-center font-600 text-white)", parentElement);
+            JavascriptExecutor js = (JavascriptExecutor) getDriver();
+            js.executeScript("arguments[0].click();", RejectButton);
+        }
+
+
+    public static void shadowRootWithSearchContext(WebElement shadowParentElement) {
+    /*asagidaki kod ile shadow root yapisina sahip tag'in locatini searchContext objesine atiyoruz. Boylece elementin
+        Shadow Dom try yapisina ulasiliyor
+                    */
+        SearchContext searchContext = shadowParentElement.getShadowRoot();
+
+        /*
+        asagidaki kod click islemi yapilmak istenen elementi bulmak icin searchContext icindeki Shadow Dom
+        icine bir element locate verilerek aranir ve bir webelemente atanir.
+         */
+
+        WebElement shadowElement = searchContext.findElement(By.cssSelector(ConfigReader.getProperty("ShadowRejectButton")));
+        shadowElement.click();
+
+
+    }
 }
+
 
 
 

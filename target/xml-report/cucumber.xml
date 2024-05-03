@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="25.698" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search a Keyword Test For N11" name="Search a keyword with results" time="25.265">
+<testsuite name="Cucumber" time="0.898" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="Search Product Details" name="Search Product Details" time="0.06">
+<failure/>
 <system-out><![CDATA[
-Given User navigates to "url"...............................................passed
-When User searches for a keyword in the search box finding results..........passed
-Then Verify that search results should be displayed in the Browser..........passed
+Given Search product named "productName" in search bar......................undefined
+And Click the first result..................................................skipped
+Then Verify product details contains "productName"..........................skipped
+Then Verify product price contains "TL".....................................skipped
+Then Verify brand rate point is visible.....................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

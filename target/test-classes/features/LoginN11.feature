@@ -2,9 +2,8 @@
 @N11_Login
 Feature: Basic Login-Logout Test For N11
 
- #Background: Go to homepage of N11 and click Giris Yap button
- #  Given User navigates to "url"
- #  And User clicks to Giris Yap button
+ Background: Go to homepage of N11 and click Giris Yap button
+      Given User clicks to Giris Yap button
 
   @SuccesfulLogin @P1
   Scenario: Successful Login and Logout
