@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="0.898" tests="1" skipped="0" failures="1" errors="0">
-<testcase classname="Search Product Details" name="Search Product Details" time="0.06">
-<failure/>
+<testsuite name="Cucumber" time="43.907" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search Product Details" name="Search Product Details" time="42.606">
 <system-out><![CDATA[
-Given Search product named "productName" in search bar......................undefined
-And Click the first result..................................................skipped
-Then Verify product details contains "productName"..........................skipped
-Then Verify product price contains "TL".....................................skipped
-Then Verify brand rate point is visible.....................................skipped
+Given Search product named  in search bar...................................passed
+And Click the first result..................................................passed
+Then Verify product details contains productName............................passed
+Then Verify product price contains currency.................................passed
+Then Verify brand rate point is visible.....................................passed
 ]]></system-out>
 </testcase>
 </testsuite>

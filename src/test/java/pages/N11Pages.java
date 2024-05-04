@@ -44,7 +44,7 @@ public class N11Pages {
     @FindBy(xpath = "//h1")
     public WebElement notFoundText;
 
-    @FindBy(xpath = "(//div[@id='p-581650182'])")
+    @FindBy(xpath = "(//img[@class='lazy cardImage'])[1]")
     public WebElement firstProduct;
     @FindBy(xpath = "//h1[@class='proName']")
     public WebElement productNameDetails;

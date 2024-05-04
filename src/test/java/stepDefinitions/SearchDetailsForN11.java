@@ -1,7 +1,6 @@
 package stepDefinitions;
 
 import com.github.javafaker.Faker;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
@@ -10,7 +9,7 @@ import pages.N11Pages;
 import utilities.ConfigReader;
 import utilities.ReusableMethods;
 
-public class SearchDetilsForN11 {
+public class SearchDetailsForN11 {
     N11Pages n11Pages = new N11Pages();
     Faker faker = new Faker();
     String productName = ConfigReader.getProperty("productName");
