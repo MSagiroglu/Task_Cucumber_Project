@@ -59,7 +59,9 @@ public class N11Pages {
     @FindBy(css = "div[data-name='Reject Button']")
     public WebElement rejectButton;
     @FindBy(xpath = "//div[@name='Accept Button']")
-    public WebElement rejectButton2;
+    public WebElement acceptButton;
+    @FindBy(xpath = "(//button[@class=\"dn-slide-deny-btn\"])[1]")
+    public WebElement dahaSonraButton;
 
 
     //kkhh

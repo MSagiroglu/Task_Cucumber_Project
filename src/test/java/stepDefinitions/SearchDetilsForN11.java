@@ -18,9 +18,6 @@ public class SearchDetilsForN11 {
 
     @Given("Search product named  in search bar")
     public void search_product_named_in_search_bar() {
-        ReusableMethods.shadowRootWithSearchContext(n11Pages.shadowParentElement,ConfigReader.getProperty("ShadowRejectButton"));
-       //ReusableMethods.shadowRootWithClickParent(n11Pages.shadowParentElement,n11Pages.rejectButton2);
-        //ReusableMethods.shadowRootWithParentElement(n11Pages.shadowParentElement);
         n11Pages.searchBox.sendKeys(productName, Keys.ENTER);
     }
 
