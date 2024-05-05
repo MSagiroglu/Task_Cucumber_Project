@@ -2,6 +2,7 @@
 
 package utilities;
 
+import io.opentelemetry.semconv.SemanticAttributes;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.N11Pages;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
@@ -21,9 +23,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import static utilities.Driver.driver;
 import static utilities.Driver.getDriver;
 
 public class ReusableMethods {
+
 
     public static void logToTxtFile(WebElement element, String definingMessage, String fileName) throws IOException {
         String rootDir = System.getProperty("user.dir");
@@ -415,18 +419,20 @@ public class ReusableMethods {
     }
 
     //Shadow Root
-    public static void shadowRootWithParentElement(WebElement parentElement) {
+    public static void shadowRootWithParentElement(WebElement parentElement,String locateValue) {
 
 
-            //shadow root içeren elementi clickler
-            WebElement RejectButton = (WebElement) ((JavascriptExecutor) getDriver())
-                    .executeScript("return arguments[0].shadowRoot.querySelector('.px-16px py-8px cursor-pointer rounded-6px bg-[#5D3EBC] text-center font-600 text-white)", parentElement);
-            JavascriptExecutor js = (JavascriptExecutor) getDriver();
-            js.executeScript("arguments[0].click();", RejectButton);
-        }
+        //shadow root içeren elementi clickler
+        WebElement acceptButton = (WebElement) ((JavascriptExecutor) getDriver())
+        .executeScript("return arguments[0].shadowRoot.querySelector('"+locateValue+"')", parentElement);
+
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+
+        js.executeScript("arguments[0].click();", acceptButton);
+    }
 
 
-    public static void shadowRootWithSearchContext(WebElement shadowParentElement) {
+    public static void shadowRootWithSearchContext(WebElement shadowParentElement, String locateChildElement) {
     /*asagidaki kod ile shadow root yapisina sahip tag'in locatini searchContext objesine atiyoruz. Boylece elementin
         Shadow Dom try yapisina ulasiliyor
                     */
@@ -436,13 +442,22 @@ public class ReusableMethods {
         asagidaki kod click islemi yapilmak istenen elementi bulmak icin searchContext icindeki Shadow Dom
         icine bir element locate verilerek aranir ve bir webelemente atanir.
          */
-
-        WebElement shadowElement = searchContext.findElement(By.cssSelector(ConfigReader.getProperty("ShadowRejectButton")));
+        WebElement shadowElement = searchContext.findElement(By.cssSelector(locateChildElement));
         shadowElement.click();
 
 
     }
+    public static void shadowRootWithClickParent(WebElement parentElement,WebElement childElement) {
+        try {
+            parentElement.click();
+            childElement.click();
+        }catch (Exception e) {
+
+        }
+
+    }
 }
+
 
 
 

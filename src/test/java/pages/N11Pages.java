@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,7 +45,7 @@ public class N11Pages {
     @FindBy(xpath = "//h1")
     public WebElement notFoundText;
 
-    @FindBy(xpath = "(//div[@id='p-581650182'])")
+    @FindBy(xpath = "(//img[@class='lazy cardImage'])[1]")
     public WebElement firstProduct;
     @FindBy(xpath = "//h1[@class='proName']")
     public WebElement productNameDetails;
@@ -55,8 +56,10 @@ public class N11Pages {
     public WebElement shopPoint;
     @FindBy(xpath = "//efilli-layout-dynamic")
     public WebElement shadowParentElement;
-    @FindBy(xpath = "//div[@class='px-16px py-8px cursor-pointer rounded-6px bg-[#5D3EBC] text-center font-600 text-white']")
-    public WebElement shadowChildElement;
+    @FindBy(css = "div[data-name='Reject Button']")
+    public WebElement rejectButton;
+    @FindBy(xpath = "//div[@name='Accept Button']")
+    public WebElement rejectButton2;
 
 
     //kkhh
