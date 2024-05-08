@@ -47,4 +47,16 @@ public class SearchDetilsForN11 {
     public void verifyBrandRatePointIsVisible() {
         Assert.assertTrue(n11Pages.shopPoint.isDisplayed());
     }
+
+    @Given("Search {string}  in search bar")
+    public void searchInSearchBar(String arg0) {
+        n11Pages.searchBox.sendKeys(arg0, Keys.ENTER);
+
+    }
+
+    @Then("Verify product details contains {string} in productName")
+    public void verifyProductDetailsContainsInProductName(String arg0) {
+        String productNameDetails = n11Pages.productNameDetails.getText();
+        Assert.assertTrue(productNameDetails.contains(arg0));
+    }
 }

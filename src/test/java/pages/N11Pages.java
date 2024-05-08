@@ -62,6 +62,8 @@ public class N11Pages {
     public WebElement acceptButton;
     @FindBy(xpath = "(//button[@class=\"dn-slide-deny-btn\"])[1]")
     public WebElement dahaSonraButton;
+    @FindBy(xpath = "(//a[contains(., 'Cep Telefonu')])[2]")
+    public WebElement cepTelefonuSekme;
 
 
     //kkhh
