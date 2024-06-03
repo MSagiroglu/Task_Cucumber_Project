@@ -36,8 +36,8 @@ public class SearchDetilsForN11 {
 
     }
 
-    @Then("Verify product price contains currency")
-    public void verifyProductPriceContainsCurrency() {
+    @Then("Verify the product price contains currency")
+    public void verifyTheProductPriceContainsCurrency() {
         String productPrice = n11Pages.productPrice.getText();
         Assert.assertTrue(productPrice.contains(currency));
 
@@ -54,8 +54,8 @@ public class SearchDetilsForN11 {
 
     }
 
-    @Then("Verify product details contains {string} in productName")
-    public void verifyProductDetailsContainsInProductName(String arg0) {
+    @Then("Verify the product details contains {string} in productName")
+    public void verifyTheProductDetailsContainsInProductName(String arg0) {
         String productNameDetails = n11Pages.productNameDetails.getText();
         Assert.assertTrue(productNameDetails.contains(arg0));
     }

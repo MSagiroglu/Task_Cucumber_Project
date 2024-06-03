@@ -27,6 +27,6 @@ public class ScenarioOutlineStep {
 
     @Then("Verify product details contains {} in Product Tab")
     public void verifyProductDetailsContainsInProductTab(String arg0) {
-        Assert.assertTrue(n11Pages.cepTelefonuSekme.getText().contains((arg0.split(" "))[0]));
+        Assert.assertTrue(n11Pages.urunBaslik.getText().contains((arg0.split(" "))[0]));
     }
 }

@@ -18,58 +18,54 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.20.0</version>
+            <version>4.21.0</version>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>7.16.1</version>
+            <version>7.18.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>7.16.1</version>
+            <version>7.18.0</version>
             <scope>test</scope>
         </dependency>
-
-
-
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi</artifactId>
-            <version>5.2.5</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- Java Faker -->
         <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
+
+        <!-- Excel dosyaları okuma ihtiyacı varsa kullanılır. -->
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi  excell için-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
-            <version>5.2.3</version>
+            <version>5.2.5</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml excell için-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
-            <version>5.2.3</version>
+            <version>5.2.5</version>
         </dependency>
+
 
         <!-- java objecti json objesine dönüştürme ihtiyacı var olduğunda kullanılan Jackon dependency'i eklememiz gerekiyor. -->
 
@@ -79,6 +75,8 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.15.2</version>
         </dependency>
+
+        <!-- !!! API Testleri icin kullanilacak dependency -->
         <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -87,6 +85,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- !!! Database Testleri icin kullanilacak dependency -->
         <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -94,6 +93,8 @@
             <version>42.5.0</version>
         </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
             <!-- paralel test icin  -->

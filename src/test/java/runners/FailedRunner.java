@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 
         features = "@target/failed_scenarios.txt",//.txt dosya path
         glue = {"stepDefinitions"},
-        tags = "@N11",
         dryRun = false,
         monochrome=true
 

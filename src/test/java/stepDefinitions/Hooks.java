@@ -2,6 +2,7 @@ package stepDefinitions;
 
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
@@ -76,10 +77,10 @@ public class Hooks {
 
 //Bu method fail olan scenario'larda fail olan kısmın resmini rapora ekleyecektir.
 
-    // @AfterAll
-    // public static void tearDownAll() {
-    //     Driver.closeDriver();
-    // }
+     @AfterAll
+     public static void tearDownAll() {
+         Driver.closeDriver();
+     }
 
 }
 

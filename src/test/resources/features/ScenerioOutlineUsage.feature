@@ -1,3 +1,4 @@
+@ScenerioOutlineUsage
 Feature: Scenario Outline Usage
 
   Background: Go to homepage of N11 and click Giris Yap button
