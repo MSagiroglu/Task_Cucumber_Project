@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="16.861" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="Search for flights from Emirates" name="Search return flights" time="16.438">
+<testsuite name="Cucumber" time="17.9" tests="1" skipped="0" failures="0" errors="0">
+<testcase classname="Search for flights from Emirates" name="Search return flights" time="17.424">
 <system-out><![CDATA[
 Given User should choose first city.........................................passed
 And User should choose second city..........................................passed

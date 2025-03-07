@@ -22,8 +22,9 @@ public class Emirates {
         emirates.acceptButton.click();
         ReusableMethods.waitForClickablility(emirates.xButton, 5);
         actions.click(emirates.firstCity);
-        actions.sendKeys(Keys.CLEAR).sendKeys(" dxb").build().perform();
+        actions.sendKeys(Keys.CLEAR);
         ReusableMethods.wait(2);
+        actions.sendKeys(" dxb").build().perform();
         WebElement country = Driver.getDriver().findElement(By.xpath("//p[@class=\"location__airport__city\" and @data-location-value=\"Dubai\"]"));
         actions.sendKeys(Keys.ENTER).build().perform();
 
@@ -33,6 +34,7 @@ public class Emirates {
     public void userShouldChooseSecondCity() {
         ReusableMethods.waitForClickablility(emirates.secondCity, 5);
         actions.click(emirates.secondCity);
+        ReusableMethods.wait(2);
         actions.sendKeys(" ist").build().perform();
         ReusableMethods.wait(2);
         WebElement country = Driver.getDriver().findElement(By.xpath("//p[@class=\"location__airport__city\" and @data-location-value=\"İstanbul\"]"));
